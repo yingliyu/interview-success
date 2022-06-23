@@ -34,11 +34,19 @@ var isPalindrome = function (n) {
   let centerIndex = 0
   for (let i = 0; i < x.length; i++) {
     if (len % 2 === 0) {
-      centerIndex = len / 2
-      const before = x.slice(0, centerIndex - 1)
-      const after = x.slice(centerIndex + 1)
-      if (Number(before) === reverseNum(after)) {
-        result = true
+      if (len === 2) {
+        const arr = x.split('')
+        if (arr[0] === arr[1]) {
+          result = true
+        }
+      } else {
+        centerIndex = len / 2
+        const before = x.slice(0, centerIndex)
+        const after = x.slice(centerIndex)
+        console.log('==', before, after)
+        if (Number(before) === reverseNum(after)) {
+          result = true
+        }
       }
     } else {
       centerIndex = (len + 1) / 2
@@ -51,4 +59,4 @@ var isPalindrome = function (n) {
   }
   return result
 }
-console.log(isPalindrome(123321))
+console.log(isPalindrome(1000030001))
