@@ -2,7 +2,7 @@
  * @Author: ylyu
  * @Date: 2022-06-22 09:13:03
  * @LastEditors: ylyu
- * @LastEditTime: 2022-06-23 14:35:52
+ * @LastEditTime: 2022-06-24 14:42:31
  * @Description:
  */
 // 编写一个函数来查找字符串数组中的最长公共后缀。
@@ -25,19 +25,20 @@ var longestCommonSuffix = function (strs) {
     return ''
   }
 
-  for (let i = strs[0].length - 1; i >= 0; i--) {
-    let temp = strs[0].charAt(i)
-    for (let j = 1; j < strs.length; j++) {
-      let index = i - strs[0].length + 1
-      console.log('index=', index, strs[j].length - index)
-      if (strs[j].charAt(strs[j].length - 1 - index) !== temp) {
-        console.log(strs[j].length - 1 - index)
+  for (let i = 0; i < strs[0].length; i++) {
+    let temp = strs[0].charAt(strs[0].length - 1 - i)
 
-        return strs[0].slice(-2, -1)
+    for (let j = 1; j < strs.length; j++) {
+      // 数组的每一项后缀对应的索引值在变
+      let index = strs[j].length - 1 - i
+      if (strs[j].charAt(index) !== temp && i !== 0) {
+        console.log(i, temp, index)
+
+        return strs[0].slice('-' + i)
       }
     }
   }
   return strs[0]
 }
 
-console.log('===', longestCommonSuffix(['flower', 'fler', 'flighter']))
+console.log('===', longestCommonSuffix(['ro', 'fler', 'flighter']))

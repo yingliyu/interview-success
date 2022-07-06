@@ -2,7 +2,7 @@
  * @Author: ylyu
  * @Date: 2022-06-22 09:13:03
  * @LastEditors: ylyu
- * @LastEditTime: 2022-06-22 10:59:59
+ * @LastEditTime: 2022-07-06 14:05:33
  * @Description:
  */
 // 编写一个函数来查找字符串数组中的最长公共前缀。
@@ -28,7 +28,7 @@ var longestCommonPrefix = function (strs) {
   for (let i = 0; i < strs[0].length; i++) {
     let temp = strs[0].charAt(i)
     for (let j = 1; j < strs.length; j++) {
-      if (i == strs[j].length || strs[j].charAt(i) !== temp) {
+      if (i === strs[j].length || strs[j].charAt(i) !== temp) {
         return strs[0].substring(0, i)
       }
     }
@@ -36,4 +36,4 @@ var longestCommonPrefix = function (strs) {
   return strs[0]
 }
 
-console.log('===', longestCommonPrefix(['dog', 'racecar', 'car']))
+console.log('===', longestCommonPrefix(['dog', 'fisher', 'car']))
