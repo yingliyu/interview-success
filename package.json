@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/yingliyu/interview-success#readme",
   "dependencies": {
+    "clui": "^0.3.6",
     "ftp": "^0.3.10"
   }
 }
